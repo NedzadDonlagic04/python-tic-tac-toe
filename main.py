@@ -2,15 +2,21 @@ def introduction():
     print('Hello! Welcome to a simple tic tac toe game made with python!')
     print('The game is simple, place either X or O on a tile by entering the tile number')
     print('Tile numbers go from 1 to 9 going from the top left to the bottom right')
+    print('Do you wish to play single-player, multi-player or view the scoreboard?')
+        
 
 def main():
     introduction()
-    choice = input('Do you wish to play single player or multi player? Enter 1 or 2: ')
+    choice = input('Enter S, M or V: ')
     
-    if choice == '1':
+    spots = [' '] * 9
+
+    if choice == 'S':
         print('Single player!')
-    elif choice == '2':
+    elif choice == 'M':
         print('Multi player')
+    elif choice == 'V':
+        print('Scoreboard')
     else:
         print('Error incorrect input. Game terminated.')
 
