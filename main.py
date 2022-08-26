@@ -1,5 +1,7 @@
+# Importing needed modules
 import gameFunctions as game
 
+# Main function where everything comes together
 def main():
     game.introduction()
     choice = input('Enter S, M or V: ')
@@ -57,5 +59,6 @@ def main():
     else:
         print('Error incorrect input. Game terminated.')
 
+# Calling the main function
 if __name__ == '__main__':
     main()
