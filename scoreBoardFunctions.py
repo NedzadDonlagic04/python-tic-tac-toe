@@ -4,14 +4,8 @@ import json
 
 # Function used to create a json file with a boiler plate given to it
 def createJSON(jsonDefault, jsonName):
-    os.mknod(jsonName)
     with open(jsonName, 'w') as scoreBoard:
         json.dump(jsonDefault, scoreBoard)
-
-# Function used to delete and then create a json file with a boiler plate given to it
-def resetJSON(jsonDefault, jsonName):
-    os.remove(jsonName)
-    createJSON(jsonDefault, jsonName)
 
 # Function used to get the contents of the json file
 def getJSONContent(jsonName):
@@ -56,12 +50,12 @@ def updateScoreBoard(winner, outputCheck=False):
         createJSON(jsonDefault, jsonName)
     else:
         if not validateJSON(keys, jsonName):
-            resetJSON(jsonDefault, jsonName)
+            createJSON(jsonDefault, jsonName)
 
     content = getJSONContent(jsonName)
 
     if len(content['playerNames']) != len(content['playerScore']):
-        resetJSON(jsonDefault, jsonName)
+        createJSON(jsonDefault, jsonName)
 
     if not outputCheck:
         content = getJSONContent(jsonName)
