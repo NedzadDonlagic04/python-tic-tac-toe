@@ -1,5 +1,6 @@
 # Importing needed modules
 import gameFunctions as game
+import scoreBoardFunctions as view
 
 # Main function where everything comes together
 def main():
@@ -30,6 +31,7 @@ def main():
             elif game.checkWinner(board, sign):
                 game.boardOutput(board)
                 print(f'Player {player} wins!')
+                view.updateScoreBoard(player)
                 break
 
             sign = 'X' if sign == 'O' else 'O'
@@ -50,12 +52,13 @@ def main():
             elif game.checkWinner(board, sign):
                 game.boardOutput(board)
                 print(f'Player {player} wins!')
+                view.updateScoreBoard(player)
                 break
 
             sign = 'X' if sign == 'O' else 'O'
             player = player1 if player == player2 else player2
     elif choice == 'V':
-        print('Scoreboard')
+        view.showScoreBoard()
     else:
         print('Error incorrect input. Game terminated.')
 
